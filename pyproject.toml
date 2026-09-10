@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hakari"
+version = "0.0.1"
+description = "git 履歴と行数から修正率とホットスポットを測る"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+hakari = "hakari.app:main"
+
+[tool.setuptools.packages.find]
+include = ["hakari*"]
+
+[tool.pytest.ini_options]
+markers = [
+  "slow: performance tests that exercise a synthetic large repository",
+]

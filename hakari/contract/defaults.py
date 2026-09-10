@@ -1,0 +1,28 @@
+DEFAULTS = {
+    "branch": "auto",
+    "timezone": "Asia/Tokyo",
+    "recent_days": 30,
+    "hotspot_days": 90,
+    "fix": {
+        "fix_types": ["fix", "hotfix"],
+        "feat_types": ["feat"],
+        "subject_pattern": r"\b(fix|hotfix|revert|regression|bug)\b",
+    },
+    "hotspot": {"min_lines": 800, "min_rework": 1000},
+    "paths": {
+        "exclude": ["**/node_modules/**", "**/_vendor/**", "**/vendor/**", "**/*.lock",
+                    "**/package-lock.json", "**/dist/**", "**/build/**", "**/target/**",
+                    "**/.next/**", "**/*.min.js", "**/*.pb.go", "**/*.xcodeproj/**",
+                    "**/*.xcassets/**"],
+        "tests": ["**/tests/**", "**/test/**", "**/*_test.go", "**/test_*.py", "**/*_test.py",
+                  "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*Tests.swift",
+                  "**/*_test.rs"],
+        "docs": ["docs/**", "**/*.md"],
+        "production_extensions": ["go", "py", "rs", "swift", "ts", "tsx", "js", "kt",
+                                  "java", "c", "cc", "cpp", "h"],
+        "version_files": ["**/pyproject.toml", "**/package.json", "**/__init__.py",
+                           "release-manifest.json", "**/Cargo.toml"],
+    },
+    "components": {},
+    "output": {"dir": "docs/quality-metrics"},
+}
